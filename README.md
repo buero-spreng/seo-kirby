@@ -1,4 +1,4 @@
-# kb-seo-kirby
+# Seo Kirby
 
 Lightweight SEO utilities for **Kirby 5** — no Panel JS or build step.  
 Adds reusable SEO tabs for Site & Pages, a `<head>` snippet with smart fallbacks, a sitemap at `/sitemap.xml`, and an automatic `robots.txt`.
