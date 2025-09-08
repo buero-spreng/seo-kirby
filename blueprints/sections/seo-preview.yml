@@ -1,0 +1,10 @@
+# Once I could add a preview field to show the current state of the SEO displayed in search engines...
+
+label: Hinweis
+type: info
+theme: green
+text:
+  en: |
+    If you want that your page get's displayed properly in search engines, set a title, a description and all Robot rules to yes
+  de: |
+    Damit die Seite in Suchmaschinen korrekt angezeigt wird, setze einen Titel, eine Beschreibung und alle Richtlinien auf "Ja".

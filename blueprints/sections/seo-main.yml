@@ -1,0 +1,37 @@
+label: 
+  en: SEO Settings
+  de: SEO Einstellungen
+type: fields
+fields:    
+
+  mainHeadline:
+    label: 
+      en: SEO Settings
+      de: SEO-Einstellungen
+    type: headline
+
+  seoTitle:
+    label: 
+      en: SEO Title
+    type: text
+    placeholder: "{{ site.seoTitle }}"
+    help: |
+      Ein Template, das für alle Seitentitel verwendet werden soll.
+      "{{ title }}" wird durch den Titel der Seite ersetzt.
+
+  seoDescription:
+    label: 
+      en: SEO Description
+      de: SEO Beschreibung
+    type: text
+    help: |
+      Empfohlene Länge von max. 150 Zeichen. Wird verwendet, falls keine Seitenbeschreibung angegeben ist.
+
+  seoKeywords:
+    label: 
+      en: SEO Keywords
+      de: SEO Schlüsselwörter
+    type: tags
+
+  mainLine:
+    type: line

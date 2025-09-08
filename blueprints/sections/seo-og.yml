@@ -1,0 +1,36 @@
+label: 
+  en: Open Graph Settings
+  de: Open Graph Einstellungen
+type: fields
+fields:   
+
+  ogHeadline:
+    label: 
+      en: Open Graph Settings
+      de: Open Graph Einstellungen
+    type: headline
+
+  ogTitle:
+    label: 
+      en: Open Graph Title
+      de: Open Graph Titel
+    type: text
+
+  ogDescription:
+    label: 
+      en: Open Graph Description
+      de: Open Graph Beschreibung
+    type: text
+
+  ogImage:
+    label: 
+      en: Open Graph Image
+      de: Open Graph Bild
+    type: files
+    multiple: false
+    query: site.files
+    help: |
+      Empfohlen ist ein Bild mit einer Breite von 1200px und einer Höhe von 630px.
+
+  ogLine:
+    type: line

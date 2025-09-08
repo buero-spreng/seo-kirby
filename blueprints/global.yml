@@ -1,0 +1,25 @@
+label: 
+  en: SEO & Metadata – Global
+  de: SEO & Metadaten – Global
+
+icon: search
+
+columns: 
+
+  main:
+    width: 3/5
+    
+    sections:
+      
+      mainSettings: sections/seo-main
+      
+      ogSettings: sections/seo-og
+
+      robotsSettings: sections/seo-robots
+        
+  sidebar:
+    width: 2/5
+    sticky: true
+    fields:
+      # This field should preview the search engine result
+      preview: sections/seo-preview

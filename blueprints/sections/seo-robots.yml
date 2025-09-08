@@ -1,0 +1,78 @@
+label:
+  en: Robots Settings
+  de: Richtlinien für Suchmaschinen & Crawler
+type: fields
+fields:
+  robotsHeadline:
+    label:
+      en: Robots Settings
+      de: Richtlinien für Suchmaschinen & Crawler
+    type: headline
+    help: |
+      Wenn alle Einstellungen auf "Nein" gesetzt sind, wird die Seite nicht in Suchmaschinen angezeigt.
+
+
+  seoIndex:
+    label:
+      en: Allow Indexing
+      de: Indexierung erlauben
+    type: toggles
+    default: index
+    width: 1/2
+    options:
+      index: Ja
+      noindex: Nein
+    help: |
+      Ob Suchmaschinen die Seite indexieren dürfen.
+
+  seoLinks:
+    label:
+      en: Allow Links
+      de: Links erlauben
+    type: toggles
+    default: follow
+    width: 1/2
+    options:
+      follow: Ja
+      nofollow: Nein
+    help: |
+      Ob Suchmaschinen Links auf dieser Seite folgen dürfen.
+
+  seoArchive:
+    label:
+      en: Allow Archiving
+      de: Archivierung erlauben
+    type: toggles
+    default: archive
+    width: 1/2
+    options:
+      archive: Ja
+      noarchive: Nein
+    help: |
+      Ob Suchmaschinen zwischengespeicherte Versionen der Seite ausliefern dürfen.
+
+  seoImageIndex:
+    label:
+      en: Allow Image Indexing
+      de: Bild Indexierung erlauben
+    type: toggles
+    default: index
+    width: 1/2
+    options:
+      imageindex: Ja
+      noimageindex: Nein
+    help: |
+      Ob Bilder dieser Seite in der Bildersuche angezeigt werden dürfen.
+
+  seoSnippets:
+    label:
+      en: Allow Snippets
+      de: Textausschnitte erlauben
+    type: toggles
+    default: snippets
+    width: 1/2
+    options:
+      snippets: Ja
+      nosnippets: Nein
+    help: |
+      Ob Suchmaschinen Textausschnitte aus der Seite anzeigen dürfen.
