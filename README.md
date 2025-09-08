@@ -1,117 +1,86 @@
-# Kirby Pluginkit: Example plugin for Kirby
+# kb-seo-kirby
 
-> Variant "Panel plugin setup"
-
-This is a boilerplate for a Kirby Panel plugin that can be installed via all three [supported installation methods](https://getkirby.com/docs/guide/plugins/plugin-setup-basic#the-three-plugin-installation-methods).
-
-You can find a list of Pluginkit variants on the [`master` branch](https://github.com/getkirby/pluginkit/tree/master).
-
-****
-
-## How to use the Pluginkit
-
-1. Fork this repository
-2. Change the plugin name and description in the `composer.json`
-3. Change the plugin name in the `index.php` and `src/index.js`
-4. Change the license if you don't want to publish under MIT
-5. Add your plugin code to the `index.php` and `src/index.js`
-6. Update this `README` with instructions for your plugin
-
-### Install the development and build setup
-
-We use [kirbyup](https://github.com/johannschopplich/kirbyup) for the development and build setup.
-
-You can start developing directly. kirbyup will be fetched remotely with your first `npm run` command, which may take a short amount of time.
-
-### Development
-
-You can start the dev process with:
-
-```bash
-npm run dev
-```
-
-This will automatically update the `index.js` and `index.css` of your plugin as soon as you make changes.
-Reload the Panel to see your code changes reflected.
-
-With kirbyup 2.0.0+ and Kirby 3.7.4+ you can alternatively use hot module reloading (HMR):
-
-```bash
-npm run serve
-```
-
-This will start a development server that updates the page as soon as you make changes. Some updates are instant, like CSS or Vue template changes, others require a reload of the page, which happens automatically.
-
-> [!NOTE]
-> The live reload functionality requires top level await, [which is only supported in modern browsers](https://caniuse.com/mdn-javascript_operators_await_top_level). If you're developing in older browsers, use `npm run dev` and reload the page manually to see changes.
-
-### Production
-
-As soon as you are happy with your plugin, you should build the final version with:
-
-```bash
-npm run build
-```
-
-This will automatically create a minified and optimized version of your `index.js` and `index.css`
-which you can ship with your plugin.
-
-We have a tutorial on how to build your own plugin based on the Pluginkit [in the Kirby documentation](https://getkirby.com/docs/guide/plugins/plugin-setup-basic).
-
-### Build reproducibility
-
-While kirbyup will stay backwards compatible, exact build reproducibility may be of importance to you. If so, we recommend to target a specific package version, rather than using npx:
-
-```json
-{
-  "scripts": {
-    "dev": "kirbyup src/index.js --watch",
-    "build": "kirbyup src/index.js"
-  },
-  "devDependencies": {
-    "kirbyup": "^3.1.0"
-  }
-}
-```
-
-What follows is an example README for your plugin.
-
-****
+Lightweight SEO utilities for **Kirby 5** — no Panel JS or build step.  
+Adds reusable SEO tabs for Site & Pages, a `<head>` snippet with smart fallbacks, a sitemap at `/sitemap.xml`, and an automatic `robots.txt`.
 
 ## Installation
 
-### Download
-
-Download and copy this repository to `/site/plugins/{{ plugin-name }}`.
-
-### Git submodule
+Clone into your project’s plugins folder:
 
 ```bash
-git submodule add https://github.com/{{ your-name }}/{{ plugin-name }}.git site/plugins/{{ plugin-name }}
+git clone https://github.com/kesabr/kb-seo-kirby.git site/plugins/kb-seo-kirby
 ```
 
-### Composer
+(or copy the folder manually to `site/plugins/kb-seo-kirby`)
 
-```bash
-composer require {{ your-name }}/{{ plugin-name }}
+> Requires Kirby 5 (PHP 8.2+). After installation, hard‑reload the Panel; if tabs don’t show, clear `site/cache/*` and `media/*`.
+
+## Add the SEO tabs
+
+### Site (global defaults)
+```yml
+# site/blueprints/site.yml
+title: Site
+tabs:
+  content:
+    sections:
+      pages: { type: pages }
+  seo: seo/global   # ← from the plugin
 ```
 
-## Setup
+### Pages
+```yml
+# site/blueprints/pages/default.yml (example)
+title: Page
+tabs:
+  content:
+    sections:
+      fields:
+        type: fields
+        fields:
+          text: { type: textarea }
+  seo: seo/page     # ← from the plugin
+```
 
-*Additional instructions on how to configure the plugin (e.g. blueprint setup, config options, etc.)*
+## Output meta tags
 
-## Options
+Add this once in your HTML `<head>` (e.g., `site/templates/default.php`):
 
-*Document the options and APIs that this plugin offers*
+```php
+<?= snippet('seo/head') ?>
+```
 
-## Development
+This outputs `<title>`, meta description, robots, canonical, Open Graph, Twitter Card and (in multilang) `hreflang` links. Page values override Site defaults; if empty, the snippet falls back to sensible defaults.
 
-*Add instructions on how to help working on the plugin (e.g. npm setup, Composer dev dependencies, etc.)*
+## Title template placeholders
+
+In the **Site** SEO tab, editors can set a title template, e.g.:
+
+```
+{{ page.title }} – {{ site.title }}
+```
+
+Supported (case/space‑insensitive):
+- `{{ title }}` (page title by default)
+- `{{ page.title }}`
+- `{{ site.title }}`
+
+Unknown tokens are left as‑is.
+
+## Sitemap & robots.txt
+
+- **Sitemap**: available at **`/sitemap.xml`**. Includes published pages and respects `seoIndex: noindex`.  
+  Optional ignore list in `site/config/config.php`:
+  ```php
+  return [
+    'kesabr.seo-kirby.sitemap.ignore' => ['error', 'sitemap'],
+  ];
+  ```
+
+- **robots.txt**: available at **`/robots.txt`**. Allows all, disallows `/panel`, and links to the sitemap.
+
+> For staging, prefer HTTP auth or set `X-Robots-Tag: noindex, nofollow` via config headers.
 
 ## License
 
-MIT
-
-## Credits
-
-- [Your Name](https://github.com/ghost)
+MIT © 2025 kesabr
