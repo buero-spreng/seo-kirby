@@ -12,6 +12,7 @@ Kirby::plugin('kesabr/kb-seo-kirby', [
   ],
 
   'blueprints' => [
+    // use these outside the plugin
     'seo/global' => __DIR__ . '/blueprints/global.yml',
     'seo/page' => __DIR__ . '/blueprints/page.yml',
 
@@ -19,8 +20,9 @@ Kirby::plugin('kesabr/kb-seo-kirby', [
     'sections/seo-main'   => __DIR__ . '/blueprints/sections/seo-main.yml',
     'sections/seo-og'     => __DIR__ . '/blueprints/sections/seo-og.yml',
     'sections/seo-robots' => __DIR__ . '/blueprints/sections/seo-robots.yml',
-    'sections/seo-preview' => __DIR__ . '/blueprints/sections/seo-preview.yml',
-    'sections/seo-preview-page' => __DIR__ . '/blueprints/sections/seo-preview-page.yml'
+
+    // field blueprints
+    'fields/show-warnings' => __DIR__ . '/blueprints/fields/show-warnings.yml',
   ],
 
   'routes' => [

@@ -22,5 +22,45 @@ columns:
     sticky: true
     fields:
       # This field should preview the search engine result
-      preview: 
-        extends: sections/seo-preview-page
+      # preview: sections/seo-preview
+
+      showWarnings:
+        type: toggle
+        label:
+          en: Show Warnings
+          de: Hinweise anzeigen
+        default: true
+
+      pageInfo:
+        label: Hinweis
+        type: info
+        theme: green
+        text:
+          en: |
+            To have this page displayed properly by search engines, set a title, a description and all Robot rules to yes
+          de: |
+            Damit diese Seite von Suchmaschinen korrekt angezeigt wird, setze einen Titel, eine Beschreibung und alle Richtlinien auf "Ja".
+        when:
+          showWarnings: true
+
+      pageNotIndexed:
+        type: info
+        label:
+          en: Page not indexed
+          de: Diese Seite wird nicht indiziert
+        theme: yellow
+        text:
+          en: |
+            <strong>This page is not indexed by search engines.</strong>
+
+            Change the "Allow Indexing" setting to "Yes" to make it visible.
+          de: |
+            <strong>Diese Seite wird von Suchmaschienen nicht angezeigt.</strong>
+
+            <ul>
+            <li>Ändere die Einstellung <i>Indexierung erlauben</i> auf <i>Ja</i> um es sichtbar zu machen.</li>
+            <li>Um die gesamte Webseite zu verbergen, gehe zu den globalen Einstellungen.</li>
+            </ul>
+        when:
+          seoIndex: noindex
+          showWarnings: true

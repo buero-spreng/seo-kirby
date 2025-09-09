@@ -1,25 +1,59 @@
-label: 
+label:
   en: SEO & Metadata – Global
   de: SEO & Metadaten – Global
 
 icon: search
 
-columns: 
-
+columns:
   main:
     width: 3/5
-    
+
     sections:
-      
       mainSettings: sections/seo-main
-      
+
       ogSettings: sections/seo-og
 
       robotsSettings: sections/seo-robots
-        
+
   sidebar:
     width: 2/5
     sticky: true
     fields:
       # This field should preview the search engine result
-      preview: sections/seo-preview
+      # preview: sections/seo-preview
+      
+      showWarnings: fields/show-warnings
+
+      globalInfo:
+        label: Hinweis
+        type: info
+        theme: green
+        text:
+          en: |
+            To have your website displayed properly by search engines, set a title, a description and all Robot rules to yes
+          de: |
+            Damit die Webseite von Suchmaschinen korrekt angezeigt wird, setze einen Titel, eine Beschreibung und alle Richtlinien auf "Ja".
+        when:
+          showWarnings: true
+
+      siteNotIndexed:
+        type: info
+        label:
+          en: Site not indexed
+          de: Site nicht indiziert
+        theme: warning
+        text:
+          en: |
+            <strong>The full website is not indexed by search engines.</strong>
+
+            Change the "Allow Indexing" setting to "Yes" to make it visible.
+          de: |
+            <strong>Die gesamte Webseite wird von Suchmaschienen nicht angezeigt.</strong>
+
+            <ul>
+            <li>Ändere die Einstellung <i>Indexierung erlauben</i> auf <i>Ja</i> um es sichtbar zu machen.</li>
+            <li>Um einzelne Seiten zu verbergen, gehe zu den Seitenspezifischen einstellungen.</li>
+            </ul>
+        when:
+          seoIndex: noindex
+          showWarnings: true

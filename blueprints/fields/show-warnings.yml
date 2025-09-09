@@ -1,0 +1,5 @@
+type: toggle
+label:
+  en: Show Warnings
+  de: Hinweise anzeigen
+default: true
