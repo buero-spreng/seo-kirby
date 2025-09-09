@@ -17,7 +17,7 @@ fields:
     placeholder: "{{ site.seoTitle }}"
     help: |
       Ein Template, das für alle Seitentitel verwendet werden soll.
-      "{{ title }}" wird durch den Titel der Seite ersetzt.
+      &#123;&#123; title &#125;&#125; wird durch den Titel der Seite ersetzt.
 
   seoDescription:
     label: 
