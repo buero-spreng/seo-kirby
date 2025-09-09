@@ -13,11 +13,12 @@ if (!function_exists('renderTitleTemplate')) {
 
 // TITLE
 if ($page->seoTitle()->isNotEmpty()) {
-    $seoTitle = $page->seoTitle();
+    $titleString = $page->seoTitle();
+    $seoTitle = renderTitleTemplate($titleString, $site, $page);
 } elseif ($site->seoTitle()->isNotEmpty()) {
     // Allow "{{ title }}" placeholder at site level
-    $tpl = $site->seoTitle();
-    $seoTitle = renderTitleTemplate($tpl, $site, $page);
+    $titleString = $site->seoTitle();
+    $seoTitle = renderTitleTemplate($titleString, $site, $page);
 } else {
     $seoTitle = $page->title();
 }
