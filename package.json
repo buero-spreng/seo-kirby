@@ -1,4 +1,9 @@
 {
+  "name": "seo-kirby",
+  "version": "1.0.0",
+  "description": "SEO Plugin for Kirby",
+  "author": "Kenan Brunner",
+  "license": "MIT",
   "scripts": {
     "dev": "npx -y kirbyup src/index.js --watch",
     "serve": "npx -y kirbyup serve src/index.js",

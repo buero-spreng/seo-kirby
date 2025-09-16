@@ -1,13 +1,13 @@
 {
-	"name": "getkirby/pluginkit",
-	"description": "Kirby Example Plugin",
+	"name": "kesabr/seo-kirby",
+	"description": "SEO Plugin for Kirby",
 	"license": "MIT",
 	"type": "kirby-plugin",
 	"version": "1.0.0",
 	"authors": [
 		{
-			"name": "Your Name",
-			"email": "you@example.com"
+			"name": "Kenan Brunner",
+			"email": "hello@kenanbrunner.ch"
 		}
 	],
 	"require": {
