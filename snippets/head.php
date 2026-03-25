@@ -77,7 +77,7 @@ $ogImg   = $ogFile ? $ogFile->url() : null;
 // HREFLANG (if multilang)
 $hreflangs = [];
 if (kirby()->multilang()) {
-    foreach ($site->languages() as $lang) {
+    foreach ($kirby->languages() as $lang) {
         $hreflangs[$lang->code()] = $page->url($lang->code());
     }
 }
