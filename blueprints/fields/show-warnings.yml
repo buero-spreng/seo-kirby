@@ -1,5 +1,5 @@
 type: toggle
 label:
-  en: Show Warnings
-  de: Hinweise anzeigen
+  en: Show Notifications
+  de: Benachrichtigungen anzeigen
 default: true

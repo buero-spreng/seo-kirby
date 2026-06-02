@@ -17,9 +17,10 @@ Kirby::plugin('kesabr/kb-seo-kirby', [
     'seo/page' => __DIR__ . '/blueprints/page.yml',
 
     // section blueprints
-    'sections/seo-main'   => __DIR__ . '/blueprints/sections/seo-main.yml',
-    'sections/seo-og'     => __DIR__ . '/blueprints/sections/seo-og.yml',
-    'sections/seo-robots' => __DIR__ . '/blueprints/sections/seo-robots.yml',
+    'sections/seo-main'         => __DIR__ . '/blueprints/sections/seo-main.yml',
+    'sections/seo-og'           => __DIR__ . '/blueprints/sections/seo-og.yml',
+    'sections/seo-robots'       => __DIR__ . '/blueprints/sections/seo-robots.yml',
+    'sections/seo-serp-preview' => __DIR__ . '/blueprints/sections/seo-serp-preview.yml',
 
     // field blueprints
     'fields/show-warnings' => __DIR__ . '/blueprints/fields/show-warnings.yml',
